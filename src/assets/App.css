@@ -1,11 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
+@plugin "@iconify/tailwind4";
+
+@theme {
+    --color-dark:           oklch(27.43% 0 274.7);
+    --color-dark-hover:     oklch(22% 0 274.7);
+    --color-light:          oklch(83.51% 0 274.7);
+    --color-light-hover:    oklch(75% 0 274.7);
+    --color-default:        oklch(65% 0 0);
+    --color-default-hover:  oklch(55% 0 0);
+    --color-primary:        oklch(58.14% 0.2001 256.27);
+    --color-primary-hover:  oklch(50% 0.2001 256.27);
+    --color-success:        oklch(86.81% 0.229 149.41);
+    --color-success-hover:  oklch(75% 0.229 149.41);
+    --color-warning:        oklch(91.65% 0.1805 102.52);
+    --color-warning-hover:  oklch(80% 0.1805 102.52);
+    --color-info:           oklch(76.79% 0.14 229.94);
+    --color-info-hover:     oklch(65% 0.14 229.94);
+    --color-danger:         oklch(61.92% 0.2419 19.12);
+    --color-danger-hover:   oklch(50% 0.2419 19.12);
+}
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     outline: none;
-    border: 0;
     font-family: "Plus Jakarta Sans", serif;
 }
