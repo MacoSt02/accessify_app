@@ -1,3 +1,4 @@
+import { Icon } from '@iconify/react';
 import { toast } from 'react-toastify';
 
 export const notify = {
@@ -8,9 +9,7 @@ export const notify = {
                 <p className='text-xs'>{message}</p>
             </div>,
             {
-                theme: 'colored',
-                icon: <span className="icon-[solar--info-circle-bold-duotone]"></span>,
-                hideProgressBar: true,
+                icon: <Icon icon='solar:info-circle-bold-duotone' width='2em' height='2em' />,
                 style: {
                     border: 'solid 1px',
                 },
@@ -24,9 +23,7 @@ export const notify = {
                 <p className='text-xs'>{message}</p>
             </div>,
             {
-                theme: 'colored',
-                icon: <span className="icon-[solar--check-circle-bold-duotone]"></span>,
-                hideProgressBar: true,
+                icon: <Icon icon='solar:check-circle-bold-duotone' width='2em' height='2em' />,
                 style: {
                     border: 'solid 1px',
                 },
@@ -39,9 +36,7 @@ export const notify = {
                 <p className='text-xs'>{message}</p>
             </div>,
             {
-                theme: 'colored',
-                icon: <span className="icon-[solar--danger-triangle-bold-duotone]"></span>,
-                hideProgressBar: true,
+                icon: <Icon icon='solar:danger-triangle-bold-duotone' width='2em' height='2em' />,
                 style: {
                     border: 'solid 1px',
                 },
@@ -54,9 +49,7 @@ export const notify = {
                 <p className='text-xs'>{message}</p>
             </div>,
             {
-                theme: 'colored',
-                icon: <span className="icon-[solar--close-circle-bold-duotone]"></span>,
-                hideProgressBar: true,
+                icon: <Icon icon='solar:close-circle-bold-duotone' width='2em' height='2em' />,
                 style: {
                     border: 'solid 1px',
                 },

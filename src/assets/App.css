@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
-@plugin "@iconify/tailwind4";
 
 @theme {
     --color-dark:           oklch(27.43% 0 274.7);
     --color-dark-hover:     oklch(22% 0 274.7);
     --color-light:          oklch(83.51% 0 274.7);
     --color-light-hover:    oklch(75% 0 274.7);
-    --color-default:        oklch(65% 0 0);
-    --color-default-hover:  oklch(55% 0 0);
     --color-primary:        oklch(58.14% 0.2001 256.27);
     --color-primary-hover:  oklch(50% 0.2001 256.27);
     --color-success:        oklch(86.81% 0.229 149.41);
@@ -19,10 +16,27 @@
     --color-info-hover:     oklch(65% 0.14 229.94);
     --color-danger:         oklch(61.92% 0.2419 19.12);
     --color-danger-hover:   oklch(50% 0.2419 19.12);
+
+    --color-default: oklch(37.03% 0.0119 285.81);
+    --color-default-50: oklch(21.03% 0.0059 285.89);
+    --color-default-100: oklch(27.39% 0.0055 286.03);
+    --color-default-200: oklch(37.03% 0.0119 285.81);
+    --color-default-300: oklch(44.19% 0.0146 285.79);
+    --color-default-400: oklch(55.17% 0.0138 285.94);
+    --color-default-500: oklch(71.18% 0.0129 286.07);
+    --color-default-600: oklch(87.11% 0.0055 286.29);
+    --color-default-700: oklch(91.97% 0.004 286.32);
+    --color-default-800: oklch(96.74% 0.0013 286.38);
+    --color-default-900: oklch(98.51% 0 0);
 }
 
 * {
     box-sizing: border-box;
     outline: none;
     font-family: "Plus Jakarta Sans", serif;
+}
+
+.Toastify__toast-icon {
+    width: auto;
+    align-items: center;
 }

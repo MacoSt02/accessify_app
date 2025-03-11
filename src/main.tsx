@@ -16,13 +16,6 @@ const contextClass = {
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <App />
-        <ToastContainer
-            limit={4}
-            toastClassName={context =>
-                contextClass[context?.type || 'default'] +
-                ' relative flex p-2 mb-4 min-h-10 rounded-lg justify-between overflow-hidden cursor-pointer text-sm'
-            }
-            autoClose={5000}
-        />
+        <ToastContainer toastClassName={context => contextClass[context?.type || 'default'] + ' flex p-3 mb-4 min-h-10 min-w-70 rounded-lg overflow-hidden cursor-pointer text-sm'} theme='colored' closeButton={false} hideProgressBar limit={2} autoClose={5000} closeOnClick />
     </StrictMode>,
 );

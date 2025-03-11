@@ -1,73 +1,68 @@
-import React, { useState } from "react";
 import serverApi from "@/fetch/config";
+import { FetchError } from "@/fetch/Fetch";
 import { notify } from "@/utils/Notifications";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
     const navigate = useNavigate();
-    
-    const [formData, setFormData] = useState({ email: 'user@accessify.cat', password: 'Claymore.18' });
+    const [loginData, setLoginData] = useState({ email: '', password: '' });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setFormData(prevData => ({
-            ...prevData,
+        setLoginData(prevState => ({
+            ...prevState,
             [name]: value,
         }));
     };
 
-    const login = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleLogin = async () => {
         try {
-            const res = await serverApi.post("/login", formData);
-            if (res.status === 200) {
-                notify.success("Login successfully");
-                navigate("/dashboard");
-            } else {
-                notify.error(res.data.error);
-            }
-        } catch (e) {
-            notify.error("Error: " + e);
-        }
+            const res = await serverApi.post('/login', loginData);
+            console.log(res);
+            navigate('/dashboard');
+            notify.success(res.data.message);
+        } catch (error: unknown) {
+            const e = error as FetchError;
+            notify.error(e.message);
+        };
     };
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-gray-900 text-white">
-            <div className="w-full max-w-md p-8 bg-gray-800 rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold text-center">Inicia Sessió</h2>
-                <form className="mt-4" onSubmit={login}>
-                    <div className="mb-4">
-                        <label className="block text-gray-400" htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="w-full mt-1 p-2 bg-gray-700 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-400" htmlFor="password">Contrasenya</label>
-                        <input
-                            type="password"
-                            id="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            className="w-full mt-1 p-2 bg-gray-700 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
-                            required
-                        />
-                    </div>
+        <div className="flex min-h-screen items-center justify-center bg-dark">
+            <div className="w-[30vw] rounded-2xl bg-[#18181b] p-6 text-white shadow-md">
+                <h2 className="mb-6 text-3xl text-center font-bold">Login</h2>
+                <div className="px-4 py-2">
+                    <div className="mb-2">Email</div>
+                    <input
+                        type="email"
+                        name="email"
+                        value={loginData.email}
+                        onChange={handleChange}
+                        className="w-full rounded-lg bg-default-100 hover:bg-default-200 min-h-10 px-3 duration-200"
+                    />
+                </div>
+                <div className="px-4 py-2">
+                    <div className="mb-2">Password</div>
+                    <input
+                        type="password"
+                        name="password"
+                        value={loginData.password}
+                        onChange={handleChange}
+                        className="w-full rounded-lg bg-[#27272a] hover:bg-[#3f3f46] min-h-10 px-3 duration-200"
+                    />
+                </div>
+                <div className="flex justify-center">
                     <button
-                        type="submit"
-                        className="w-full bg-red-500 hover:bg-red-600 p-2 rounded-lg font-semibold text-white mt-4"
+                        className="m-4 rounded-xl bg-blue-600 px-5 py-2 hover:bg-blue-700 cursor-pointer"
+                        onClick={handleLogin}
                     >
-                        Inicia Sessió
+                        Login
                     </button>
-                </form>
+                </div>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default Signup;

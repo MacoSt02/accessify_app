@@ -1,3 +1,8 @@
+export type FetchError = {
+    status: number;
+    message: string;
+    code: string;
+}
 export class Fetch {
     private url: string | undefined;
 
@@ -8,13 +13,21 @@ export class Fetch {
     private async handleResponse(response: Response) {
         const contentType = response.headers.get('Content-Type');
         const result = contentType && contentType.includes('application/json') ? await response.json() : await response.text();
-
+    
+        if (!response.ok) {
+            throw {
+                status: response.status,
+                message: result.error || result.message || 'An error occurred',
+                code: result.code || 'UNKNOWN_ERROR',
+            } as FetchError;
+        }
+    
         return {
             status: response.status,
             ok: response.ok,
             data: result,
         };
-    };
+    };    
 
     async get(url: string) {
         url = url.replace(/^\//, '');

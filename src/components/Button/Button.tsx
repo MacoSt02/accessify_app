@@ -45,14 +45,16 @@ const Button: React.FC<ButtonProps> = ({
     children,
     ...rest
 }) => {
+    const hasBackgroundClass = /\bbg-[^\s]+/.test(className);
     return (
-        <button className={`transition-all duration-200 
-            ${sizeStyles[size]} 
-            ${colorStyles[color]}
-            ${radiusStyles[radius]}
-            ${fullWidth ? 'w-full' : ''} 
-            ${disabled ? 'opacity-50 cursor-not-allowed' : ''} 
-            ${className}`}
+        <button
+            className={`transition-all duration-200
+                ${sizeStyles[size]}
+                ${radiusStyles[radius]}
+                ${fullWidth ? 'w-full' : ''}
+                ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+                ${!hasBackgroundClass ? colorStyles[color] : ''}
+                ${className}`}
             disabled={disabled}
             {...rest}
         >
