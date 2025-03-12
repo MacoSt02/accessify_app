@@ -2,15 +2,16 @@ import { createBrowserRouter } from 'react-router-dom';
 import Signup from '@pages/Signup';
 import Login from '@pages/Login';
 import PrivateRoute from './PrivateRoute';
-import Main from '@/config/Main';
+import Main from '@pages/Main';
 import { Routes } from '@/config/Routes';
 import NotFound from '@pages/NotFound';
 import { RouterProvider } from 'react-router';
-import { PermissionsProvider } from '@/context/AuthContext';
+import PublicRoute from './PublicRoute';
 
 const Router = () => {
     const router = createBrowserRouter([
         {
+            element: <PublicRoute />,
             children: [
                 { path: '/signup', element: <Signup /> },
                 { path: '/login', element: <Login /> },
@@ -33,11 +34,7 @@ const Router = () => {
         { path: '*', element: <NotFound /> },
     ]);
 
-    return (
-        <PermissionsProvider>
-            <RouterProvider router={router} />
-        </PermissionsProvider>
-    );
+    return <RouterProvider router={router} />;
 };
 
 export default Router;

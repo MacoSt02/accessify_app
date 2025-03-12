@@ -1,10 +1,10 @@
 import { useAuth } from "@/Hooks/useAuth";
 import { Navigate, Outlet } from "react-router-dom";
 
-const PrivateRoute = () => {
+const PublicRoute = () => {
     const { authenticated, loading } = useAuth();
     if (loading) return <p>Carregant...</p>;
-  return authenticated ? <Outlet /> : <Navigate to="/login" replace />;
+    return !authenticated ? <Outlet /> : <Navigate to="/home" replace />;
 };
 
-export default PrivateRoute;
+export default PublicRoute;

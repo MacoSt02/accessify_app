@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export type ChildrenRoute = Omit<RouteObj, 'icon' | 'alternativePath'>;
 
 export type RouteObj = {
@@ -5,8 +7,8 @@ export type RouteObj = {
     path: string;
     name: string;
     element: JSX.Element;
-    icon: JSX.Element;
-    menu: string;
+    icon?: JSX.Element;
+    menu: boolean;
     children?: ChildrenRoute[];
     alternativePath?: string;
 };
