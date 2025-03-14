@@ -1,33 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-dark:           oklch(27.43% 0 274.7);
-    --color-dark-hover:     oklch(22% 0 274.7);
-    --color-light:          oklch(83.51% 0 274.7);
-    --color-light-hover:    oklch(75% 0 274.7);
-    --color-primary:        oklch(58.14% 0.2001 256.27);
-    --color-primary-hover:  oklch(50% 0.2001 256.27);
-    --color-success:        oklch(86.81% 0.229 149.41);
-    --color-success-hover:  oklch(75% 0.229 149.41);
-    --color-warning:        oklch(91.65% 0.1805 102.52);
-    --color-warning-hover:  oklch(80% 0.1805 102.52);
-    --color-info:           oklch(76.79% 0.14 229.94);
-    --color-info-hover:     oklch(65% 0.14 229.94);
-    --color-danger:         oklch(61.92% 0.2419 19.12);
-    --color-danger-hover:   oklch(50% 0.2419 19.12);
+    --color-background: oklch(100% 0 0);
+    --color-foreground: oklch(0% 0 0);
+    --color-divider: oklch(17% 0 0 / 17%);
 
-    --color-default: oklch(37.03% 0.0119 285.81);
-    --color-default-50: oklch(21.03% 0.0059 285.89);
-    --color-default-100: oklch(27.39% 0.0055 286.03);
-    --color-default-200: oklch(37.03% 0.0119 285.81);
-    --color-default-300: oklch(44.19% 0.0146 285.79);
-    --color-default-400: oklch(55.17% 0.0138 285.94);
-    --color-default-500: oklch(71.18% 0.0129 286.07);
-    --color-default-600: oklch(87.11% 0.0055 286.29);
-    --color-default-700: oklch(91.97% 0.004 286.32);
-    --color-default-800: oklch(96.74% 0.0013 286.38);
-    --color-default-900: oklch(98.51% 0 0);
+    --color-primary: oklch(0% 0 0);
+    --color-primary-50: oklch(12% 0.0002 280);
+    --color-primary-100: oklch(25% 0.0004 282);
+    --color-primary-200: oklch(40% 0.0006 284);
+    --color-primary-300: oklch(55% 0.0008 285);
+    --color-primary-400: oklch(70% 0.001 285.5);
+    --color-primary-500: oklch(80% 0.0011 286);
+    --color-primary-600: oklch(88% 0.0012 286.2);
+    --color-primary-700: oklch(93% 0.00125 286.3);
+    --color-primary-800: oklch(96.74% 0.0013 286.38);
+    --color-primary-900: oklch(100% 0 0);
+}
+
+@layer theme {
+    .dark {
+        --color-background: oklch(0% 0 0);
+        --color-foreground: oklch(100% 0 0);
+        --color-divider: oklch(83% 0 0 / 17%);
+
+        --color-primary: oklch(100% 0 0);
+        --color-primary-50: oklch(96.74% 0.0013 286.38);
+        --color-primary-100: oklch(93% 0.00125 286.3);
+        --color-primary-200: oklch(88% 0.0012 286.2);
+        --color-primary-300: oklch(80% 0.0011 286);
+        --color-primary-400: oklch(70% 0.001 285.5);
+        --color-primary-500: oklch(55% 0.0008 285);
+        --color-primary-600: oklch(40% 0.0006 284);
+        --color-primary-700: oklch(25% 0.0004 282);
+        --color-primary-800: oklch(12% 0.0002 280);
+        --color-primary-900: oklch(0% 0 0);
+    }
 }
 
 * {
