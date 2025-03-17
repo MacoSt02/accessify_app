@@ -45,7 +45,7 @@ const Login = () => {
                         name='email'
                         value={loginData.email}
                         onChange={handleChange}
-                        className='w-full rounded-lg bg-default-200 text-default-900 hover:bg-default-300 min-h-10 px-3 duration-200'
+                        className='w-full rounded-lg bg-primary-700 text-primary hover:bg-primary-600 min-h-10 px-3 duration-200'
                     />
                 </div>
                 <div className='px-4 py-2'>
@@ -55,12 +55,12 @@ const Login = () => {
                         name='password'
                         value={loginData.password}
                         onChange={handleChange}
-                        className='w-full rounded-lg bg-default-200 text-default-900 hover:bg-default-300 min-h-10 px-3 duration-200'
+                        className='w-full rounded-lg bg-primary-700 text-primary hover:bg-primary-600 min-h-10 px-3 duration-200'
                     />
                 </div>
                 <div className='flex justify-center'>
                     <button
-                        className='m-4 rounded-xl font-bold text-default-50 dark:text-default-900 bg-primary px-5 py-2 hover:bg-primary-600 cursor-pointer'
+                        className='m-4 rounded-xl font-bold text-primary-900 bg-primary px-5 py-2 hover:bg-primary-200 cursor-pointer'
                         onClick={handleLogin}
                     >
                         Login

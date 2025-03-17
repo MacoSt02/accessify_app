@@ -1,6 +1,12 @@
+import { useAuth } from "@/Hooks/useAuth";
+
 const Profile = () => {
+    const { can } = useAuth();
     return (
-        <div className='font-bold text-4xl'>Profile</div>
+        <div>
+            <div className='font-bold text-4xl'>Profile</div>
+            {can('ViewProfile') && <div>CanViweProfile</div>}
+        </div>
     );
 };
 

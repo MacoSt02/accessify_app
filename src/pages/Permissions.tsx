@@ -1,6 +1,12 @@
+import { useAuth } from "@/Hooks/useAuth";
+
 const Permissions = () => {
+    const { can } = useAuth();
     return (
-        <div className='font-bold text-4xl'>Permissions</div>
+        <div>
+            <div className='font-bold text-4xl'>Permissions</div>
+            {can('ViewPermissions') && <div>CanViwePermissions</div>}
+        </div>
     );
 };
 

@@ -1,6 +1,12 @@
+import { useAuth } from "@/Hooks/useAuth";
+
 const Settings = () => {
+    const { can } = useAuth();
     return (
-        <div className='font-bold text-4xl'>Settings</div>
+        <div>
+            <div className='font-bold text-4xl'>Settings</div>
+            {can('ViewSettings') && <div>CanViweSettings</div>}
+        </div>
     );
 };
 

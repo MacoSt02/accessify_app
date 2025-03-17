@@ -29,12 +29,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
     };
 
+    const can = (permission: string) => {
+        return permissions.some(p => p.permission_name === permission);
+    };
+
     useEffect(() => {
         checkAuth();
     }, []);
 
     return (
-        <AuthContext.Provider value={{ authenticated, permissions, loading, checkAuth }}>
+        <AuthContext.Provider value={{ authenticated, permissions, loading, checkAuth, can }}>
             {children}
         </AuthContext.Provider>
     );

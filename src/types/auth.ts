@@ -7,4 +7,5 @@ export type AuthContextType = {
     permissions: Permission[];
     loading: boolean;
     checkAuth: () => Promise<void>;
+    can: (permission: string) => boolean;
 };
