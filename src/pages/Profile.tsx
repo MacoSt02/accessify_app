@@ -4,7 +4,7 @@ const Profile = () => {
     const { can } = useAuth();
     return (
         <div>
-            <div className='font-bold text-4xl'>Profile</div>
+            <div className='font-bold text-3xl'>Profile</div>
             {can('ViewProfile') && <div>CanViweProfile</div>}
         </div>
     );

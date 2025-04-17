@@ -13,6 +13,7 @@ export const notify = {
                 style: {
                     border: 'solid 1px',
                 },
+                position: 'top-center',
             },
         );
     },
@@ -27,6 +28,7 @@ export const notify = {
                 style: {
                     border: 'solid 1px',
                 },
+                position: 'top-center',
             },
         ),
     warning: (message: string) =>
@@ -40,6 +42,7 @@ export const notify = {
                 style: {
                     border: 'solid 1px',
                 },
+                position: 'top-center',
             },
         ),
     error: (message: string) => {
@@ -53,6 +56,7 @@ export const notify = {
                 style: {
                     border: 'solid 1px',
                 },
+                position: 'top-center',
             },
         );
     },

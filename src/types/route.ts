@@ -2,6 +2,16 @@ import { JSX } from "react";
 
 export type ChildrenRoute = Omit<RouteObj, 'icon' | 'alternativePath'>;
 
+type PermissionName =
+  | "ViewHome"
+  | "ViewProfile"
+  | "ViewSettings"
+  | "ViewUsers"
+  | "ViewRoles"
+  | "ViewPermissions"
+  | "ViewFiles"
+  | "ViewLogs";
+
 export type RouteObj = {
     id: string;
     path: string;
@@ -11,4 +21,5 @@ export type RouteObj = {
     menu: boolean;
     children?: ChildrenRoute[];
     alternativePath?: string;
+    permission?: PermissionName;
 };

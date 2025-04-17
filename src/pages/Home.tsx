@@ -4,7 +4,7 @@ const Home = () => {
     const { can } = useAuth();
     return (
         <div>
-            <div className='font-bold text-4xl'>Home</div>
+            <div className='font-bold text-3xl'>Home</div>
             {can('ViewHome') && <div>CanViweHome</div>}
         </div>
     );

@@ -4,7 +4,7 @@ const Roles = () => {
     const { can } = useAuth();
     return (
         <div>
-            <div className='font-bold text-4xl'>Roles</div>
+            <div className='font-bold text-3xl'>Roles</div>
             {can('ViewRoles') && <div>CanViweRoles</div>}
         </div>
     );

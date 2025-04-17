@@ -1,11 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('non.geist');
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Geist Variable';
+}
 
 @theme {
     --color-background: oklch(100% 0 0);
     --color-foreground: oklch(0% 0 0);
-    --color-divider: oklch(17% 0 0 / 17%);
+    --color-edge: oklch(0.91 0.0013 286.37);
+    --color-edge-highlight: oklch(70% 0.001 285.5);
+    --color-icon: oklch(40% 0.0006 284);
+    --color-sidebar: oklch(0.99 0 0);
+    --color-hover-link: oklch(0.97 0.0013 286.38);
 
     --color-primary: oklch(0% 0 0);
     --color-primary-50: oklch(12% 0.0002 280);
@@ -24,7 +35,6 @@
     .dark {
         --color-background: oklch(0% 0 0);
         --color-foreground: oklch(100% 0 0);
-        --color-divider: oklch(83% 0 0 / 17%);
 
         --color-primary: oklch(100% 0 0);
         --color-primary-50: oklch(96.74% 0.0013 286.38);
@@ -38,12 +48,6 @@
         --color-primary-800: oklch(12% 0.0002 280);
         --color-primary-900: oklch(0% 0 0);
     }
-}
-
-* {
-    box-sizing: border-box;
-    outline: none;
-    font-family: "Plus Jakarta Sans", serif;
 }
 
 .Toastify__toast-icon {
