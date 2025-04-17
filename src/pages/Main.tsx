@@ -27,14 +27,16 @@ const Main = () => {
 
     return (
         <main className='relative flex h-screen overflow-x-hidden text-primary'>
-            <div className='relative group w-20 h-full p-2 hover:w-72 transition-all duration-300'>
-                <div className='flex flex-col h-full p-2 bg-sidebar border border-edge rounded-lg shadow'>
-                    <div className='flex gap-1 items-center rounded-md p-1 mb-6 hover:cursor-pointer hover:bg-hover-link'>
-                        <img src='../../public/assets/icon.svg' alt='Accessify' className='w-6 h-6' />
+            <div className='absolute group w-18 h-full p-2 hover:w-72 transition-all duration-300'>
+                <div className='flex flex-col h-full p-2 gap-2 bg-sidebar border border-edge rounded-lg shadow'>
+                    <div className='flex items-center rounded-md p-1 mb-4 hover:cursor-pointer hover:bg-hover-link'>
+                        <div className='w-10 hover:w-6'>
+                            <img src='../../public/assets/icon.svg' alt='Accessify' className='min-w-7 max-h-7' />
+                        </div>
                         <h2 className='text-2xl font-bold text-nowrap overflow-hidden max-w-0 group-hover:max-w-[10rem] transition-all duration-300'>Accessify</h2>
                     </div>
                     <nav className='flex-grow h-full overflow-scroll'>
-                        <ul className='flex flex-col gap-1'>
+                        <ul className='flex flex-col gap-2'>
                             {Routes.filter(route => route.menu && (!route.permission || can(route.permission))).map(route => {
                                 const isActive = location.pathname === route.path;
                                 return (
@@ -44,8 +46,10 @@ const Main = () => {
                                             className={`flex items-center text-md p-2 font-medium rounded-lg transition-colors hover:bg-primary-800 hover:text-primary ${isActive ? 'bg-primary-800 text-primary' : 'text-primary-200'
                                                 }`}
                                         >
-                                            {route.icon}
-                                            {/* <span className='ml-2 text-nowrap overflow-hidden max-w-0 group-hover:max-w-[10rem] transition-all duration-300'>{route.name}</span> */}
+                                            <div className='w-10'>
+                                                {route.icon}
+                                            </div>
+                                            <span className='-ml-2 text-nowrap overflow-hidden max-w-0 group-hover:max-w-[10rem] transition-all duration-300'>{route.name}</span>
                                         </Link>
                                     </li>
                                 );
@@ -59,7 +63,7 @@ const Main = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex-grow p-8 flex w-full bg-background'>
+            <div className='flex-grow p-8 pl-20 flex w-full bg-background'>
                 <Outlet />
             </div>
         </main>
@@ -67,25 +71,3 @@ const Main = () => {
 };
 
 export default Main;
-
-{/* <div className='w-72 h-full p-2'>
-    <div className='flex flex-col h-full p-2 bg-sidebar border border-edge rounded-lg shadow'>
-        <div className='flex gap-1 items-center rounded-md p-1 mb-6 hover:cursor-pointer hover:bg-hover-link'>
-            <Icon icon='solar:shield-user-bold-duotone' className='text-icon' width='2em' height='2em' />
-            <h2 className='text-2xl font-bold'>Accessify</h2>
-        </div>
-        <div className='flex-grow h-full overflow-scroll'>
-            <ul className='flex flex-col gap-1'>
-                {Routes.filter(route => route.menu).map(route => {
-                    const isActive = location.pathname === route.path;
-                    return (
-                        <Link key={route.id} to={route.path} className={`flex items-center text-md p-2 font-medium rounded-lg transition-colors hover:bg-primary-800 hover:text-primary ${isActive ? 'bg-primary-800 text-primary' : 'text-primary-200'}`}>
-                            {route.icon}
-                            <span className='ml-2'>{route.name}</span>
-                        </Link>
-                    );
-                })}
-            </ul>
-        </div>
-    </div>
-</div> */}
